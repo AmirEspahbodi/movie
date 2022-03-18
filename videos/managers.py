@@ -15,7 +15,7 @@ def FileValidator(data):
      'content_type': "Files of type %(content_type)s are not supported.",
     }
 
-    max_size = 1024*1024*512
+    max_size = None 
     content_types = ['mp4', 'mkv', 'matroska', 'ogg', 'mov', 'quicktime', 'wmv', 'webm']
     min_size = None
 
@@ -38,10 +38,12 @@ def FileValidator(data):
     if content_types:
         magic.Magic(mime=True, uncompress=True)
         fie_content_type = magic.from_buffer(data.read(), mime=True)
+        fie_content_type = fie_content_type.lower()
+        
         data.seek(0)
         its_movie = False
         for i in content_types:
-            if i in fie_content_type.lower():
+            if i in fie_content_type:
                 its_movie = True
                 break
         if not its_movie:

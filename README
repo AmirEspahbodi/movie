@@ -2,3 +2,22 @@ movei site
 Movie upload site
 You need to register on Sabet and upload your videos
 You can modify or delete the videos you uploaded
+
+endpoints:
+
+# auth
+api/auth/login/
+and other dj_rest_auth endpoints
+
+# registration
+api/auth/registration/
+and other dj_rest_auth endpoints
+
+# videos
+api/video/
+api/video/all/
+api/video/upload/
+api/video/<int:pk>/
+api/video/update/<int:pk>/
+api/video/delet/<int:pk>/
+
