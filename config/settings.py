@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     
     'accounts',
-    'pages',
     'videos',
     'api',
 ]
