@@ -8,8 +8,14 @@ from rest_framework.response import Response
 
 
 class VideoListAPIView(ListAPIView):
-    permission_classes = [AllowAny]
     serializer_class = VideoListSerializer
+    def get_queryset(self):
+        return Video.objects.filter(author=self.request.user)
+
+
+class VideoAllListAPIView(ListAPIView):
+    serializer_class = VideoListSerializer
+    permission_classes = [AllowAny]
     queryset = Video.objects.all()
 
 

@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 # Create your models here.
 
+from .managers import FileValidator
+
 user = get_user_model()
 
 class Video(models.Model):
@@ -9,7 +11,7 @@ class Video(models.Model):
         user,
         on_delete=models.CASCADE
     )
-    file = models.FileField()
+    file = models.FileField(validators=[FileValidator])
     #slug = models.SlugField(unique=True)
     upload = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
