@@ -1,1 +1,1 @@
-default_app_config = 'videos.apps.AccountsConfig'
+#default_app_config = 'videos.apps.AccountsConfig'
